@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service-definition xmlns="http://www.example.org/interface-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/interface-schema ../interface-schema.xsd ">
+
+	<interface serviceURI="it.sayservice.ext.feratel">
+		<operation name="GetFeratelRicettive" storable="true">
+			<parameter name="file" type="java.lang.String"/>
+			<output type="it.sayservice.services.feratel.data.message.Data.StrutturaRicettiva"
+				repeated="true" />
+		</operation>
+		<operation name="GetFeratelPubbliche" storable="true">
+			<parameter name="file" type="java.lang.String"/>
+			<output type="it.sayservice.services.feratel.data.message.Data.StrutturaPubblica"
+				repeated="true" />
+		</operation>
+		<operation name="GetFeratelSportive" storable="true">
+			<parameter name="file" type="java.lang.String"/>
+			<output type="it.sayservice.services.feratel.data.message.Data.StrutturaSportiva"
+				repeated="true" />
+		</operation>
+		<operation name="GetFeratelCommerciale" storable="true">
+			<parameter name="file" type="java.lang.String"/>
+			<output type="it.sayservice.services.feratel.data.message.Data.StrutturaCommerciale"
+				repeated="true" />
+		</operation>
+		<operation name="GetFeratelRistoro" storable="true">
+			<parameter name="file" type="java.lang.String"/>
+			<output type="it.sayservice.services.feratel.data.message.Data.StrutturaRistoro"
+				repeated="true" />
+		</operation>
+	</interface>
+
+	<implementation package="it.sayservice.services.feratel">
+	   <operationImpl name="GetFeratelRicettive" />
+	   <operationImpl name="GetFeratelPubbliche" />
+	   <operationImpl name="GetFeratelSportive" />
+	   <operationImpl name="GetFeratelCommerciale" />
+	   <operationImpl name="GetFeratelRistoro" />
+	</implementation>
+		
+</service-definition>

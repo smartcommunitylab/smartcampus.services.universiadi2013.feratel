@@ -1,0 +1,177 @@
+package it.sayservice.services.feratel.data.message;
+
+import "core.proto";
+
+message ParcheggiList {
+	repeated Parcheggio parcheggio = 1;
+}
+
+message Parcheggio {
+  required double latitudine = 1;
+  required double longitudine = 2;
+  required string nome = 3;
+  required string indirizzo = 4;
+  optional string descIt = 5;
+  optional string descEn = 6;
+  optional string orari = 7;
+  optional string tariffe = 8;
+  optional string posti = 9;
+  optional string foursquareId = 10;
+  optional string monitorato = 11; 
+}
+
+message ImpiantoRisalita {
+  required double latitudine = 1;
+  required double longitudine = 2;
+  required string nome = 3;
+  required string typeIt = 4;
+  required string typeEn = 5;
+  optional string indirizzo = 6;
+  optional string descrizione = 7;
+  optional string orari = 8;
+  optional string tariffe = 9;
+  optional string posti = 10;
+  optional string foursquareId = 11; 
+}
+
+message ImpiantiList {
+	repeated ImpiantoRisalita impianto = 1;
+}
+
+message News {
+	required string title = 1;
+	required string description = 2;
+	required string date = 3;
+	required string link = 4;
+	required string imageUrl = 5;
+	optional string place = 6;
+	optional string eventType = 7;
+}
+
+message NewsList {
+	repeated News news = 1;
+}
+
+message Evento {
+	required string title = 1;
+	required string description = 2;
+	required string link = 3;
+	required string eventType = 4;
+	required string longitude = 5;
+	required string latitude = 6;
+	required string startDate = 7;
+	optional string endDate = 8;
+	optional string imageUrl = 9;
+	optional string place = 10;
+}
+
+message EventoList {
+	repeated Evento evento = 1;
+}
+
+message Foto {
+	required string imageUrl = 1;
+	optional string labelIt = 2;
+	optional string labelEn = 3;
+}
+
+message Posizione {
+  required double latitudine = 1;
+  required double longitudine = 2;
+}
+
+message Servizio {
+	required string id = 1;
+	required string numero = 2;
+	optional string descIt = 3;
+	optional string descEn = 4;
+}
+
+message Contatto {
+	optional string nome = 1;
+	optional string telefono = 2;
+	optional string fax = 3;
+	optional string cell = 4;
+	optional string email = 5;
+	optional string url = 6;
+}
+
+message StrutturaRicettiva {
+	required string id = 1;
+	required string tipo = 2;
+	required string nome = 3;
+	required string indirizzo = 4;
+	required Posizione posizione = 5;
+	repeated Foto foto = 6;
+	repeated Servizio servizio = 7;
+	optional string descrizioneIt = 8;
+	optional string descrizioneEn = 9;
+	optional string categoriaIt = 10;
+	optional string categoriaEn = 11;
+	optional string camere = 12;
+	optional string letti = 13;
+	optional Contatto contatto = 14;
+	optional string foursquareId = 15; 
+}
+
+message StrutturaRistoro {
+	required string id = 1;
+	required string tipo = 2;
+	required string nome = 3;
+	required string indirizzo = 4;
+	required Posizione posizione = 5;
+	repeated Foto foto = 6;
+	repeated Servizio servizio = 7;
+	optional string descrizioneIt = 8;
+	optional string descrizioneEn = 9;
+	optional string categoriaIt = 10;
+	optional string categoriaEn = 11;
+	optional string cucina = 12;
+	optional Contatto contatto = 13;
+	optional string foursquareId = 14; 
+}
+
+message StrutturaCommerciale {
+	required string id = 1;
+	required string tipo = 2;
+	required string nome = 3;
+	required string indirizzo = 4;
+	required Posizione posizione = 5;
+	repeated Foto foto = 6;
+	repeated Servizio servizio = 7;
+	optional string descrizioneIt = 8;
+	optional string descrizioneEn = 9;
+	optional string riconoscimentiIt = 10;
+	optional string riconoscimentiEn = 11;
+	optional Contatto contatto = 12;
+	optional string foursquareId = 13; 
+}
+
+message StrutturaSportiva {
+	required string id = 1;
+	required string tipo = 2;
+	required string nome = 3;
+	required string indirizzo = 4;
+	required Posizione posizione = 5;
+	repeated Foto foto = 6;
+	repeated Servizio servizio = 7;
+	optional string descrizioneIt = 8;
+	optional string descrizioneEn = 9;
+	optional Contatto contatto = 10;
+	optional string foursquareId = 11; 
+}
+
+message StrutturaPubblica {
+	required string id = 1;
+	required string tipo = 2;
+	required string nome = 3;
+	required string indirizzo = 4;
+	required Posizione posizione = 5;
+	repeated Foto foto = 6;
+	repeated Servizio servizio = 7;
+	optional string descrizioneIt = 8;
+	optional string descrizioneEn = 9;
+	optional Contatto contatto = 10;
+	optional string foursquareId = 11; 
+}
+

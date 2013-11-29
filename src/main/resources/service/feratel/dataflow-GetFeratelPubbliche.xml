@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow xmlns="http://www.example.org/mml-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+	<input name="file" type="java.lang.String" />
+	<output/>
+
+	<variable name="struttureXML" type="org.w3c.dom.Document" />
+	<variable name="keyvaluesXML" type="org.w3c.dom.Document" />
+	<variable name="struttureXMLPath" type="java.lang.String" />
+	<variable name="keyvaluesXMLPath" type="java.lang.String" />
+
+	<set outputVar="keyvaluesXMLPath">
+		<body>"service/feratel/" + file + "_keyvalues.xml"</body>
+	</set>
+	<set outputVar="struttureXMLPath">
+		<body>"service/feratel/" + file + "_strutture_non_ricettive.xml"</body>
+	</set>
+	
+	<script outputVar="keyvaluesXML" writeAction="update">
+		<className>it.sayservice.services.feratel.script.ScriptBody</className>
+		<method>getXMLDocument</method>
+		<variables>
+			<value>keyvaluesXMLPath</value>
+		</variables>
+	</script>
+	
+	<script outputVar="struttureXML" writeAction="update">
+		<className>it.sayservice.services.feratel.script.ScriptBody</className>
+		<method>getXMLDocument</method>
+		<variables>
+			<value>struttureXMLPath</value>
+		</variables>
+	</script>
+	
+	<script outputVar="output" writeAction="update">
+	  <className>it.sayservice.services.feratel.script.FeratelScript</className>
+	  <method>getStrutturePubbliche</method>
+	  <variables>
+	    <value>struttureXML</value>
+	    <value>keyvaluesXML</value>
+	  </variables>
+	</script>
+	
+</dataflow>
